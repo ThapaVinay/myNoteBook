@@ -1,5 +1,5 @@
 const mongoose = require("mongoose") // common js - dynamic, no default export, used in node.js
-const mongoURI = "mongodb://127.0.0.1:27017/"
+const mongoURI = "mongodb://127.0.0.1:27017/iNoteBook"
 
 const conectToMongo = () => {
     try{
