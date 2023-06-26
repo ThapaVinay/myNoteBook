@@ -10,7 +10,6 @@ const fetchUser = require('../middleware/fetchUser')
 const JWT_Secret = "vinay thapa";
 
 
-
 // ROUTE 1 : Create a user using POST "/api/auth/createuser". No login required 
 router.post('/createuser', [
     body('name', 'Enter a valid name').isLength({ min: 3 }),
@@ -41,16 +40,6 @@ router.post('/createuser', [
                 password: secPass,
                 email: req.body.email
             });
-
-            // // using object id as the data for the auth token
-            // const data = {
-            //     user: {
-            //         id: user.id
-            //     }
-            // }
-
-            // const authToken = jwt.sign(data, JWT_Secret);
-            // res.json({ authToken });
         }
         catch (error) {
             console.error(error.message);
