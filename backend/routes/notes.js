@@ -6,7 +6,6 @@ const { body, validationResult } = require('express-validator')
 
 // ROUTE 1 : Get all the notes Using : GET "/api/notes/fetchallnotes". Login required
 router.get('/fetchallnotes', fetchUser, async (req, res) => {
-
     // getting all the notes through user id received from the fetchUser function
     try {
         const notes = await Note.find({ user: req.user.id });
