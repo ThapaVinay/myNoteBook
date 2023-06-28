@@ -1,10 +1,15 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
 
     // gives the current location, which location of the website the user is 
-    let location  = useLocation(); 
+    let location = useLocation(); 
+
+    useEffect(() => {
+        console.log(location.pathname);
+    }, [location])
 
     return (
         <div>
