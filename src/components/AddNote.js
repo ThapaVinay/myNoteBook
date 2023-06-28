@@ -26,7 +26,6 @@ const AddNote = () => {
                 <div className="mb-3">
                     <label htmlFor="title" className="form-label">Title</label>
                     <input type="text" className="form-control" id="title" aria-describedby="emailHelp" name="title" onChange={onChange} />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label">Description</label>
