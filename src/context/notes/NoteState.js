@@ -65,7 +65,7 @@ const NoteState = (props) => {
                 "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ5MmMyMTFhZTRjNjE0MmNlMzg4YTU5In0sImlhdCI6MTY4NzQ0NzQzNH0.3ME5fgpKRT_RmyddcOSQzxaxJK9i-6ipvFnZeRT3_kc"
             },
         });
-        const json = response.json();
+        const json = await response.json();
         console.log(json);
 
         console.log("deleting with id :", id);
@@ -87,20 +87,24 @@ const NoteState = (props) => {
             },
             body: JSON.stringify(data),
         });
-        const json = response.json();
+        const json = await response.json();
         console.log(json);
+
+        // we cannot directly change the state in react
+        let newNotes = JSON.parse(JSON.stringify(notes));  // makes an independent deep copy
 
         // logic to edit in client
         for (let index = 0; index < notes.length; index++) {
             const element = notes[index];
 
             if (element._id === id) {
-                element.title = title;
-                element.description = description;
-                element.tag = tag;
+                newNotes[index].title = title;
+                newNotes[index].description = description;
+                newNotes[index].tag = tag;
+                break;
             }
-
         }
+        setNotes(newNotes);
     }
 
 
