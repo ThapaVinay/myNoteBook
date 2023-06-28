@@ -37,20 +37,7 @@ const NoteState = (props) => {
             },
             body: JSON.stringify(data),
         });
-        const json = await response.json();
-        console.log(json);
-
-        // function for the client
-        console.log("Adding a new note");
-        const note = {
-            "_id": "6495339978bf892b6468ed94",
-            "user": "6492c211ae4c6142ce388a59",
-            "title": title,
-            "description": description,
-            "tag": tag,
-            "date": "2023-06-23T05:54:33.732Z",
-            "__v": 0
-        };
+        const note = await response.json();
         setNotes(notes.concat(note));
     }
 
@@ -66,9 +53,6 @@ const NoteState = (props) => {
             },
         });
         const json = await response.json();
-        console.log(json);
-
-        console.log("deleting with id :", id);
         const newNote = notes.filter((note) => { return note._id !== id });
         setNotes(newNote);
     }
@@ -88,7 +72,6 @@ const NoteState = (props) => {
             body: JSON.stringify(data),
         });
         const json = await response.json();
-        console.log(json);
 
         // we cannot directly change the state in react
         let newNotes = JSON.parse(JSON.stringify(notes));  // makes an independent deep copy
