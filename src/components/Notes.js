@@ -4,7 +4,7 @@ import noteContext from "../context/notes/noteContext"
 import NoteItem from './NoteItem';
 import AddNote from './AddNote';
 
-export default function Notes() {
+export default function Notes(props) {
     const context = useContext(noteContext);
     const { notes, getNotes, editNote } = context;
 
@@ -27,6 +27,7 @@ export default function Notes() {
 
         editNote(note.id, note.etitle, note.edescription, note.etag);
         refClose.current.click(); // will close the refClose entity
+        props.showAlert("Updated Successfully", "success");
 
     }
 
@@ -36,7 +37,7 @@ export default function Notes() {
 
     return (
         <>
-            <AddNote />
+            <AddNote showAlert={props.showAlert} />
 
             <button type="button" ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
@@ -69,7 +70,7 @@ export default function Notes() {
 
                         <div className="modal-footer">
                             <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button disabled ={note.etitle.length<5 || note.edescription.length} type="button" className="btn btn-primary" onClick={handleClick}>Update Note</button>
+                            <button disabled={note.etitle.length < 5 || note.edescription.length<5} type="button" className="btn btn-primary" onClick={handleClick}>Update Note</button>
                         </div>
 
                     </div>
@@ -84,7 +85,7 @@ export default function Notes() {
                 </div>
 
                 {notes.map((note) => {
-                    return <NoteItem key={note._id} updateNote={updateNote} note={note} />;
+                    return <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />;
                 })}
 
             </div>

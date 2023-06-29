@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useContext } from 'react'
 import noteContext from "../context/notes/noteContext"
 
-const AddNote = () => {
+const AddNote = (props) => {
     const context = useContext(noteContext);
     const { addNote } = context;
 
@@ -13,6 +13,7 @@ const AddNote = () => {
         e.preventDefault(); // stops the page from reloading
         addNote(note.title, note.description, note.tag);
         setNote({title:"",description:"",tag:""});  // it is to clean the field after submitting
+        props.showAlert("Added Successfully", "success");
     }
 
     const onChange = (e) => {
