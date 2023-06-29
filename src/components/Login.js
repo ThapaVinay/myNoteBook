@@ -10,6 +10,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // API call
         const url = `${host}/api/auth/login`;
         const response = await fetch(url, {
             method: "POST",
@@ -36,7 +37,7 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className='container'>
             <form onSubmit={handleSubmit} >
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>

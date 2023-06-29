@@ -17,17 +17,20 @@ router.post('/createuser', [
     body('password', 'Password must be of atleast 5 characters').isLength({ min: 5 })
 ],
     async (req, res) => {
+
+        let success = false;
+
         // if there are errors return bad request and the errors
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-            return res.status(404).json({ errors: errors.array() });
+            return res.status(404).json({ success, errors: errors.array() });
         }
 
         try {
             // check whether the user with this email exists already
             let user = await User.findOne({ email: req.body.email });
             if (user) {
-                return res.status(400).json({ error: "Sorry a user with this email already exists." })
+                return res.status(400).json({ success, error: "Sorry a user with this email already exists." })
             }
 
             // salt for the hash
@@ -40,6 +43,15 @@ router.post('/createuser', [
                 password: secPass,
                 email: req.body.email
             });
+            
+            const data = {
+                user: {
+                    id: user.id
+                }
+            }
+            const authToken = jwt.sign(data, JWT_Secret);
+            success = true;
+            res.json({ success, authToken });
         }
         catch (error) {
             console.error(error.message);
