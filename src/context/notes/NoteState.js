@@ -17,7 +17,7 @@ const NoteState = (props) => {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ5MmMyMTFhZTRjNjE0MmNlMzg4YTU5In0sImlhdCI6MTY4NzQ0NzQzNH0.3ME5fgpKRT_RmyddcOSQzxaxJK9i-6ipvFnZeRT3_kc"
+                "auth-token": localStorage.getItem('token')
             },
         });
         const json = await response.json();
@@ -33,7 +33,7 @@ const NoteState = (props) => {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ5MmMyMTFhZTRjNjE0MmNlMzg4YTU5In0sImlhdCI6MTY4NzQ0NzQzNH0.3ME5fgpKRT_RmyddcOSQzxaxJK9i-6ipvFnZeRT3_kc"
+                "auth-token": localStorage.getItem('token')
             },
             body: JSON.stringify(data),
         });
@@ -49,10 +49,11 @@ const NoteState = (props) => {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
-                "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ5MmMyMTFhZTRjNjE0MmNlMzg4YTU5In0sImlhdCI6MTY4NzQ0NzQzNH0.3ME5fgpKRT_RmyddcOSQzxaxJK9i-6ipvFnZeRT3_kc"
+                "auth-token": localStorage.getItem('token')
             },
         });
         const json = await response.json();
+        console.log(json);
         const newNote = notes.filter((note) => { return note._id !== id });
         setNotes(newNote);
     }
@@ -67,11 +68,12 @@ const NoteState = (props) => {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ5MmMyMTFhZTRjNjE0MmNlMzg4YTU5In0sImlhdCI6MTY4NzQ0NzQzNH0.3ME5fgpKRT_RmyddcOSQzxaxJK9i-6ipvFnZeRT3_kc"
+                "auth-token": localStorage.getItem('token')
             },
             body: JSON.stringify(data),
         });
         const json = await response.json();
+        console.log(json);
 
         // we cannot directly change the state in react
         let newNotes = JSON.parse(JSON.stringify(notes));  // makes an independent deep copy

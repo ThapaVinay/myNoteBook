@@ -3,13 +3,20 @@ import { useContext } from 'react'
 import noteContext from "../context/notes/noteContext"
 import NoteItem from './NoteItem';
 import AddNote from './AddNote';
+import { useNavigate } from 'react-router-dom';
 
 export default function Notes(props) {
     const context = useContext(noteContext);
     const { notes, getNotes, editNote } = context;
+    let navigate = useNavigate();
 
     useEffect(() => {
-        getNotes();
+        if (localStorage.getItem('token')) {
+            getNotes();
+        }
+        else {
+            navigate('/login');
+        }
         // eslint-disable-next-line
     }, [])
 
@@ -70,7 +77,7 @@ export default function Notes(props) {
 
                         <div className="modal-footer">
                             <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button disabled={note.etitle.length < 5 || note.edescription.length<5} type="button" className="btn btn-primary" onClick={handleClick}>Update Note</button>
+                            <button disabled={note.etitle.length < 5 || note.edescription.length < 5} type="button" className="btn btn-primary" onClick={handleClick}>Update Note</button>
                         </div>
 
                     </div>
