@@ -2,8 +2,9 @@ import React from 'react'
 import { Button } from '@mui/material'
 import noteImg from '../images/inotebook.svg'
 import {Link} from 'react-router-dom'
+import Notes from './Notes'
 
-export default function Home() {
+export default function Home(props) {
 
     return (
         <>
@@ -24,6 +25,8 @@ export default function Home() {
                         <img src={noteImg} style={{ width: "75%" }} alt="myNoteBook" className="img-fluid" />
                     </div>
                 </div>
+
+                <Notes showAlert = {props.showAlert}/>
             </div>
         </>
 

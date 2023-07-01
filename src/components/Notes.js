@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useContext } from 'react'
 import noteContext from "../context/notes/noteContext"
 import NoteItem from './NoteItem';
-import AddNote from './AddNote';
 import { useNavigate } from 'react-router-dom';
+import empty from '../images/empty.svg'
 
 export default function Notes(props) {
     const context = useContext(noteContext);
@@ -16,7 +16,7 @@ export default function Notes(props) {
         }
         else {
             navigate('/login');
-            props.showAlert("You need to log In first", "danger");
+            props.showAlert("You need to log In or Sign In first", "danger");
         }
         // eslint-disable-next-line
     }, [])
@@ -45,8 +45,6 @@ export default function Notes(props) {
 
     return (
         <>
-            <AddNote showAlert={props.showAlert} />
-
             <button type="button" ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
             </button>
@@ -85,13 +83,17 @@ export default function Notes(props) {
                 </div>
             </div>
 
-            <div className="row my-4">
-                <h2>Your notes</h2>
+            <div className="row ps-5 mt-4 mb-1">
+                <h1 className='display-6'>Your notes</h1>
 
-                <div className="container mx-2">
-                    {notes.length === 0 && "No Notes to Display."}
+                {/* display when there are no notes */}
+                {notes.length === 0 &&
+                <div className="d-flex">
+                    <p style={{position:"absolute", left:"35%", marginTop:"50px"}}>Create your first note :) !!!!!</p>
+                    <img src={empty} alt="empty" className="img-fluid ms-5 mt-3" style={{width: "30%", opacity: "0.5"}}/>
                 </div>
-
+                }
+                
                 {notes.map((note) => {
                     return <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />;
                 })}

@@ -8,8 +8,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import { useState } from 'react';
 import Footer from './components/Footer';
-import Notes from './components/Notes';
-
+import AddNote from './components/AddNote';
 
 import {
   BrowserRouter as Router,
@@ -40,8 +39,8 @@ function App() {
           <div className="container">
 
             <Routes>
-              <Route exact path="/" element={<Home/>} />
-              <Route exact path="/notes" element={<Notes showAlert = {showAlert} />} />
+              <Route exact path="/" element={<Home showAlert= {showAlert}/>} />
+              <Route exact path="/notes" element={<AddNote showAlert = {showAlert} />} />
 
               <Route exact path="/about" element={<About />} />
               
@@ -50,7 +49,7 @@ function App() {
             </Routes>
 
           </div>
-          <Footer/>
+          {/* <Footer/> */}
         </Router>
       </NoteState>
     </>

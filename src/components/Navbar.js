@@ -35,8 +35,8 @@ const Navbar = (props) => {
 
                         {!localStorage.getItem('token') ? 
                         <form className="d-flex">
-                            <Button variant="outlined" color="secondary" className="nav-item" to="/login" role="button" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }} >Login</Button>
-                            <Button variant="outlined" color="secondary" className="nav-item ms-2" to="/signup" role="button" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Sign Up</Button>
+                            <Button variant="outlined" color="secondary" className="nav-item" component={Link} to="/login" role="button" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }} >Login</Button>
+                            <Button variant="outlined" color="secondary" className="nav-item ms-2" component={Link} to="/signup" role="button" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>Sign Up</Button>
                         </form> : 
                         <Button onClick={handleLogout} color = "secondary" variant="outlined" className='nav-item ms-2' style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "0.9rem" }}>LogOut</Button>}
 
