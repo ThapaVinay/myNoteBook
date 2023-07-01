@@ -16,6 +16,7 @@ export default function Notes(props) {
         }
         else {
             navigate('/login');
+            props.showAlert("You need to log In first", "danger");
         }
         // eslint-disable-next-line
     }, [])
