@@ -1,0 +1,12 @@
+.addstyle{
+    width : 600px
+}
+
+
+/* it is used to set css for a particular device */
+@media(max-width: 600px)
+{
+    .addnotes{
+        width:auto;
+    }
+}
