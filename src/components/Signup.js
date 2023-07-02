@@ -47,7 +47,7 @@ const Signup = (props) => {
             navigate('/myNoteBook');   // used to redirect   
             props.showAlert("Account created Successfully", "success")
 
-        } 
+        }
         else {
             props.showAlert(json.error, "error")
         }
@@ -65,10 +65,10 @@ const Signup = (props) => {
 
     return (
 
-        <div>
+        <div style={{ marginTop: "30px" }}>
             <div className="d-flex">
                 <div className="col-md-5">
-                    <img src={avatar} alt="signin" className="img-fluid" style={{ width: "100%", height: "85vh", objectFit: "cover" }} />
+                    <img src={avatar} alt="signin" className="img-fluid" style={{ width: "100%", height: "100vh", objectFit: "cover" }} />
                 </div>
 
                 <div className="col-md-7 ps-5 pe-5 pt-5" >

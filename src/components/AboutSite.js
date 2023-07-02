@@ -7,9 +7,9 @@ import About from '../components/About'
 
 function AboutSite() {
     return (
-        <div style={{ marginTop: "40px" }}>
+        <div style={{ marginTop: "30px" }}>
             <div className="text-white aboutImg text-center">
-                <div className="note-img">
+                <div className="note-img me-3">
                     <h1 className="display-4">myNoteBook</h1>
                     <p>An online web platform where you can create, edit, upload, delete your notes/information privately and securely without any disturbancee</p>
                 </div>
@@ -34,10 +34,10 @@ function AboutSite() {
             </div>
 
             <div className="d-flex justify-content-center">
-                <hr style={{ width: "500px", marginTop: '70px', height: "3px", backgroundColor: "grey" }} />
+                <hr style={{ width: "500px", marginTop: '50px', height: "3px", backgroundColor: "grey" }} />
             </div>
 
-            <h2 style={{ fontWeight: "bold", display: "flex", justifyContent: "center", marginTop: "40px" }}>Made By</h2>
+            <h2 style={{ fontWeight: "bold", display: "flex", justifyContent: "center", marginTop: "20px" }}>Made By</h2>
             <div className="login">
                 <About />
             </div>

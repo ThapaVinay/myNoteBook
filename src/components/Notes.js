@@ -73,8 +73,8 @@ export default function Notes(props) {
                 </Dialog>
             </div>
 
-            <div className="row ps-5 mt-4 mb-1">
-                <h1 className='display-6'> <strong>Your notes:</strong>  </h1>
+            <div className="row ps-3 mb-1" style={{marginTop:"100px"}}>
+                <h1 className='display-7'>Your notes:</h1>
 
                 {/* display when there are no notes */}
                 {notes.length === 0 &&
