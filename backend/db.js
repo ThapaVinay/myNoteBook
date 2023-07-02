@@ -1,9 +1,10 @@
 const mongoose = require("mongoose") // common js - dynamic, no default export, used in node.js
+require('dotenv').config();
 
 // const mongoURI = "mongodb://127.0.0.1:27017/iNoteBook"
 
 // connection with mongodb atlas
-const mongoURI = "mongodb+srv://LoneWolf:priyamygf12@cluster0.luv9pon.mongodb.net/iNoteBook?retryWrites=true&w=majority"
+const mongoURI = "mongodb+srv://LoneWolf:priyamygf12@cluster0.luv9pon.mongodb.net/iNoteBook?retryWrites=true&w=majority" ;
 
 const conectToMongo = () => {
     try{
@@ -14,6 +15,6 @@ const conectToMongo = () => {
     }
     console.log("connected to server ..")
     
-}
+} 
 
 module.exports = conectToMongo;
