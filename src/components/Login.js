@@ -64,7 +64,7 @@ const Login = (props) => {
 
                 <p className="mb-4 d-flex justify-content-center"> or Login with Email and Password</p>
 
-                <form noValidate onSubmit={handleSubmit} >
+                <form onSubmit={handleSubmit} >
                     <div className="mb-4">
                         <TextField variant="outlined" color="secondary" type="email" label="Email" id="email" name="email" onChange={onChange} value={credentials.email} fullWidth />
                     </div>
