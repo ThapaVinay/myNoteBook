@@ -1,4 +1,4 @@
-.addstyle{
+.addnotes{
     width : 600px
 }
 
@@ -8,5 +8,6 @@
 {
     .addnotes{
         width:auto;
+
     }
 }
