@@ -17,7 +17,7 @@ export default function Home(props) {
 
                         {/* add note button */}
                         <div className="d-flex justify-content-center">
-                            <Button component={Link} to="/notes" variant="contained" color="secondary" style={{ color: "White", textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1.3rem" }}>Create New Note</Button>
+                            <Button component={Link} to="/myNoteBook/notes" variant="contained" color="secondary" style={{ color: "White", textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1.3rem" }}>Create New Note</Button>
                         </div>
                     </div>
 

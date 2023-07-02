@@ -16,8 +16,8 @@ export default function Notes(props) {
             getNotes();
         }
         else {
-            navigate('/login');
-            props.showAlert("You need to log In or Sign In first", "warning");
+            navigate('/myNoteBook/login');
+            props.showAlert("You need to login or Signin first", "warning");
         }
         // eslint-disable-next-line
     }, [])

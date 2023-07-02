@@ -44,7 +44,7 @@ const Signup = (props) => {
         if (json.success) {
             // save the auth token and redirect
             localStorage.setItem('token', json.authToken);
-            navigate('/');   // used to redirect   
+            navigate('/myNoteBook');   // used to redirect   
             props.showAlert("Account created Successfully", "success")
 
         } 
@@ -72,7 +72,7 @@ const Signup = (props) => {
                 </div>
 
                 <div className="col-md-7 ps-5 pe-5 pt-5" >
-                    <Button className="mb-4" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>Home</Button>
+                    <Button className="mb-4" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/myNoteBook" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>Home</Button>
                     <h2 style={{ fontWeight: "Bold" }}>Create a new account</h2>
                     <p className="mb-4">Use your email to create a new account</p>
 
@@ -117,7 +117,7 @@ const Signup = (props) => {
                         <Button type="submit" fullWidth size="large" className="mb-4" variant="contained" color="secondary" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1.1rem" }}>Signup</Button>
                     </form>
 
-                    <p>Have an account? <Link to="/login">login</Link></p>
+                    <p>Have an account? <Link to="/myNoteBook/login">login</Link></p>
 
                 </div>
 

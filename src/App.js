@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import About from './components/About';
+import AboutSite from './components/AboutSite';
 import NoteState from './context/notes/NoteState';
 import Alert from './components/Alerts';
 import Login from './components/Login';
@@ -9,6 +9,7 @@ import Signup from './components/Signup';
 import { useState } from 'react';
 import Footer from './components/Footer';
 import AddNote from './components/AddNote';
+import PageNotFound from './components/PageNotFound';
 
 import {
   BrowserRouter as Router,
@@ -39,13 +40,14 @@ function App() {
           <div className="container">
 
             <Routes>
-              <Route exact path="/" element={<Home showAlert= {showAlert}/>} />
-              <Route exact path="/notes" element={<AddNote showAlert = {showAlert} />} />
+              <Route exact path="/myNoteBook" element={<Home showAlert= {showAlert}/>} />
+              <Route exact path="myNoteBook/notes" element={<AddNote showAlert = {showAlert} />} />
 
-              <Route exact path="/about" element={<About />} />
+              <Route exact path="myNoteBook/about" element={<AboutSite />} />
+              <Route exact path="/notfound" element={<PageNotFound />} />
               
-              <Route exact path="/login" element={<Login showAlert = {showAlert} />} />
-              <Route exact path="/signup" element={<Signup showAlert = {showAlert} />} />
+              <Route exact path="myNoteBook/login" element={<Login showAlert = {showAlert} />} />
+              <Route exact path="myNoteBook/signup" element={<Signup showAlert = {showAlert} />} />
             </Routes>
 
           </div>

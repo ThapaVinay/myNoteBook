@@ -27,7 +27,7 @@ const AddNote = (props) => {
     return (
         <div className="container mt-4 addnotes">
 
-            <Button className="mb-4" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>Home</Button>
+            <Button className="mb-4" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/myNoteBook" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>Home</Button>
             <h2 style={{ fontWeight: "bold" }}>Add new note</h2>
             <p className="mb-4">Add a new note with your info and tag</p>
 

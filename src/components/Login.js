@@ -33,7 +33,7 @@ const Login = (props) => {
             // save the auth token and redirect
             localStorage.setItem('token', json.authToken);
             props.showAlert("Logged In Successfully", "success")
-            navigate('/');   // used to redirect  
+            navigate('/myNoteBook');   // used to redirect  
         }
         else {
             props.showAlert(json.error, "error")
@@ -54,12 +54,12 @@ const Login = (props) => {
 
         <div>
             <div className="container mt-5 addnotes">
-                <Button className="mb-4" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>Home</Button>
+                <Button className="mb-4" variant="text" color="secondary" startIcon={<ArrowBackIcon />} component={Link} to="/myNoteBook" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif" }}>Home</Button>
                 <h2 style={{ fontWeight: "bold" }}>Login</h2>
 
                 <div className="d-flex justify-content-center my-5">
-                    <Button size="sal" className="mb-4 me-4" variant="contained" color="primary" startIcon={<FacebookIcon />} component={Link} to="/" style={{ textTransform: "none", fontSize: "1.1rem", color: "White", fontFamily: "'Poppins', sans-serif" }}>Login with Facebook</Button>
-                    <Button size="large" className="mb-4" variant="contained" color="error" startIcon={<GoogleIcon />} component={Link} to="/" style={{ textTransform: "none", fontSize: "1.1rem", color: "White", fontFamily: "'Poppins', sans-serif" }}>Login with Google</Button>
+                    <Button size="sal" className="mb-4 me-4" variant="contained" color="primary" startIcon={<FacebookIcon />} component={Link} to="/notfound" style={{ textTransform: "none", fontSize: "1.1rem", color: "White", fontFamily: "'Poppins', sans-serif" }}>Login with Facebook</Button>
+                    <Button size="large" className="mb-4" variant="contained" color="error" startIcon={<GoogleIcon />} component={Link} to="/notfound" style={{ textTransform: "none", fontSize: "1.1rem", color: "White", fontFamily: "'Poppins', sans-serif" }}>Login with Google</Button>
                 </div>
 
                 <p className="mb-4 d-flex justify-content-center"> or Login with Email and Password</p>
@@ -85,7 +85,7 @@ const Login = (props) => {
 
                     <Button type="submit" fullWidth size="large" className="mb-4" variant="contained" color="secondary" style={{ textTransform: "none", fontFamily: "'Poppins', sans-serif", fontSize: "1.1rem" }} >Login</Button>
                 </form>
-                <p> Don't have an account? <Link to="/signup">signup</Link> </p>
+                <p> Don't have an account? <Link to="/myNoteBook/signup">signup</Link> </p>
             </div>
         </div>
 

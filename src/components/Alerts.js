@@ -6,7 +6,7 @@ export default function Alerts(props) {
 
     return (
 
-        <div>
+        <div className="fixed-top">
             {props.alert &&
                 <Collapse in={true}>
                     <Alert severity={props.alert.type}>
