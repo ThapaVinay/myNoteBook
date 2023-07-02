@@ -20,6 +20,15 @@ const Signup = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (credentials.password !== credentials.cpassword) {
+            setError(true);
+            seterrorMessage('Passwords does not match')
+            return
+        }
+
+        setError(false);
+        seterrorMessage('');
+
         // API call
         const url = `${host}/api/auth/createuser`;
         const response = await fetch(url, {
@@ -34,40 +43,24 @@ const Signup = (props) => {
 
         if (json.success) {
             // save the auth token and redirect
-            localStorage.setItem('token', json.authtoken);
+            localStorage.setItem('token', json.authToken);
             navigate('/');   // used to redirect   
             props.showAlert("Account created Successfully", "success")
 
-        } else {
-            props.showAlert("Invalid Credentials", "danger")
+        } 
+        else {
+            props.showAlert(json.error, "error")
         }
 
     }
 
-    const onChange = (e) => {
+    const onChange = async (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
-        if(e.target.name === 'password' || e.target.name === 'cpassword')
-        {
-            validatePassword();
-        }
-            
     }
 
     const handleShowPassword = () => {
 
         setShowPassword(!showPassword);
-    }
-
-    const validatePassword = () => {
-        if(credentials.password !== credentials.cpassword)
-        {
-            setError(true);
-            seterrorMessage('Passwords does not match')
-        }
-        else{
-            setError(false);
-            seterrorMessage('');
-        }
     }
 
     return (
@@ -107,8 +100,17 @@ const Signup = (props) => {
                         </div>
 
                         <div className="mb-4">
-                            <TextField color="secondary" label="Confirm Password" variant="outlined" fullWidth type="password" id="cpassword" name="cpassword" onChange={onChange} value={credentials.cpassword} required 
-                            error={error} helperText={errorMessage}
+                            <TextField color="secondary" label="Confirm Password" variant="outlined" fullWidth type={showPassword ? 'text' : 'password'} id="cpassword" name="cpassword" onChange={onChange} value={credentials.cpassword} required
+                                error={error} helperText={errorMessage}
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end" key="password-toggle">
+                                            <IconButton onClick={handleShowPassword} aria-label="toggle password visibility" edge="end" >
+                                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    )
+                                }}
                             />
                         </div>
 

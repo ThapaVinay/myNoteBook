@@ -19,7 +19,7 @@ const NoteItem = (props) => {
                     {/* title */}
                     <div className="d-flex align-items-center">
                         <h5 className="card-title">{note.title}</h5>
-                        <IconButton color="secondary" className="mb-2 ms-auto" onClick={() => { deleteNote(note._id); props.showAlert("Deleted Successfully", "success"); }}>
+                        <IconButton color="secondary" className="mb-2 ms-auto" onClick={() => { deleteNote(note._id); props.showAlert("Deleted Successfully", "warning"); }}>
                             <DeleteOutlineOutlinedIcon color="secondary" />
                         </IconButton>
                         <IconButton color="secondary" className="mb-2" onClick={() => { updateNote(note) }}>

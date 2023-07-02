@@ -36,7 +36,7 @@ const Login = (props) => {
             navigate('/');   // used to redirect  
         }
         else {
-            props.showAlert("Invalid Credentials", "danger")
+            props.showAlert(json.error, "error")
         }
     }
 

@@ -17,7 +17,7 @@ export default function Notes(props) {
         }
         else {
             navigate('/login');
-            props.showAlert("You need to log In or Sign In first", "danger");
+            props.showAlert("You need to log In or Sign In first", "warning");
         }
         // eslint-disable-next-line
     }, [])
@@ -84,6 +84,7 @@ export default function Notes(props) {
                     </div>
                 }
 
+                {console.log(notes)}
                 {notes.map((note) => {
                     return <NoteItem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />;
                 })}
