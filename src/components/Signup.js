@@ -9,7 +9,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const Signup = (props) => {
 
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
-    const host = "http://localhost:3001";
+    const host = "https://mynotebook-vinay-eipr.onrender.com";
     let navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
 

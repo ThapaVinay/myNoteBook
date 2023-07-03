@@ -11,7 +11,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 const Login = (props) => {
 
     const [credentials, setCredentials] = useState({ email: "", password: "" });
-    const host = "http://localhost:3001";
+    const host = "https://mynotebook-vinay-eipr.onrender.com";
     let navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
 
