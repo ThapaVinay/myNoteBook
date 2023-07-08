@@ -31,3 +31,21 @@
     background-color: #F2F2F2;
     border-radius: 10px;
 }
+
+
+@media (max-width: 700px) {
+
+    /* Styles for mobile devices */
+    .note-img {
+        width: auto;
+    }
+
+    .aboutImg {
+        height: 50vh;
+    }
+
+    .img-fluid {
+        display: none;
+    }
+}
+
